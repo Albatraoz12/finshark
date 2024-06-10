@@ -1,0 +1,21 @@
+# Ignore build artifacts and other unnecessary files from the api directory
+api/bin/
+api/obj/
+api/*.dll
+api/*.exe
+api/*.pdb
+api/*.mdb
+api/*.log
+api/*.cache
+api/*.config
+api/*.config.*
+api/*.csproj.user
+api/*.suo
+api/*.user
+api/*.userosscache
+api/*.sln.docstates
+api/.vs/
+api/.vscode/
+
+# Global ignores
+*.swp
