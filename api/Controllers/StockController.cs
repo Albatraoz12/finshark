@@ -54,11 +54,12 @@ namespace api.Controllers
         [Route("{id}")]
         public IActionResult Update([FromRoute] int id, [FromBody] UpdateStockRequestDto updateDto)
         {
-            var stockModel = _context.Stock.First(stock => stock.Id == id);
-            if(stockModel == null)
+            var stockModel = _context.Stock.FirstOrDefault(stock => stock.Id == id);
+            if (stockModel == null)
             {
                 return NotFound();
             }
+
             stockModel.Symbol = updateDto.Symbol;
             stockModel.CompanyName = updateDto.CompanyName;
             stockModel.Purchase = updateDto.Purchase;
@@ -69,8 +70,6 @@ namespace api.Controllers
             _context.SaveChanges();
 
             return Ok(stockModel.ToStockDto());
-
         }
-
     }
 }
